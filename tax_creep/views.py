@@ -3,6 +3,7 @@ from .my_functions import *
 
 # Create your views here.
 def home(request):
+	#IF posted a salary, then do calculation
 	if request.method=="POST":
 		salary = float(request.POST['salary'])
 		inflation = float(request.POST['inflation'])
@@ -20,6 +21,6 @@ def home(request):
 		}
 		return render(request, 'home.html', content)
 
-	else:
+	else:#IF visiting site, have empty form boxes
 
 		return render(request, 'home.html', {})
